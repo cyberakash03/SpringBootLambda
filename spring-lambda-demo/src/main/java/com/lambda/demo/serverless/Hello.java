@@ -9,11 +9,10 @@ import java.util.function.Function;
 
 @Component
 public class Hello implements Function<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
-	StringBuffer finalString = new StringBuffer("Hello! Reached the Spring Cloud Function ");
     @Override
 	public APIGatewayProxyResponseEvent apply(APIGatewayProxyRequestEvent input) {
 		APIGatewayProxyResponseEvent responseEvent = new APIGatewayProxyResponseEvent();
-
+		StringBuffer finalString = new StringBuffer("Hello! Reached the Spring Cloud Function ");
 		if (input != null && input.getQueryStringParameters() != null) {
 			Map<String, String> hm = input.getQueryStringParameters();
 			Map<String, String> headers = input.getHeaders();
